@@ -164,6 +164,46 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* 🌸 Tambahan: tombol lucu */
+    .fun-section {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .question {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #a021b5;
+    }
+
+    .buttons {
+      position: relative;
+      display: inline-block;
+    }
+
+    button {
+      background-color: #d678f3;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 10px;
+      transition: 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    button:hover {
+      background-color: #b44de1;
+      transform: scale(1.05);
+    }
+
+    #noBtn {
+      position: relative;
+    }
+
     @media (max-width: 768px) {
       .photo-item img {
         width: 100%;
@@ -250,6 +290,15 @@
         </div>
       </div>
 
+      <!-- 🌸 Tambahan Tombol Lucu -->
+      <div class="fun-section">
+        <p class="question">Mau lebih jauh mengenalku? 😜</p>
+        <div class="buttons">
+          <button id="yesBtn">Ya, mau!</button>
+          <button id="noBtn">Tidak</button>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -268,6 +317,56 @@
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.photo-item, .video-gallery').forEach(el => observer.observe(el));
+
+
+  // 🌸 Tombol lucu Wiwi
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+
+  yesBtn.addEventListener('click', () => {
+    alert("nanti lagi ya haha, harus ngoding lagi ini udah cape bgtt 😩💻");
+  });
+
+  // posisi awal tombol "Tidak"
+  let posX = 0;
+  let posY = 0;
+  let direction = 0; // 0=up, 1=down, 2=left, 3=right
+
+  noBtn.style.position = "absolute";
+  noBtn.style.left = "50%";
+  noBtn.style.top = "80%";
+  noBtn.style.transform = "translateX(-50%)";
+  noBtn.style.transition = "all 0.3s ease"; // biar gerak halus
+
+  noBtn.addEventListener("mouseenter", () => {
+    const moveAmount = 120; // jarak gerak per langkah
+
+    // ubah arah setiap kali disentuh
+    switch (direction) {
+      case 0: posY -= moveAmount; break; // atas
+      case 1: posY += moveAmount; break; // bawah
+      case 2: posX -= moveAmount; break; // kiri
+      case 3: posX += moveAmount; break; // kanan
+    }
+
+    // ganti arah berikutnya (muter siklus)
+    direction = (direction + 1) % 4;
+
+    // pastikan tetap di layar
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+    posX = Math.max(-maxX/2, Math.min(maxX/2, posX));
+    posY = Math.max(-maxY/2, Math.min(maxY/2, posY));
+
+    // update posisi tombol
+    noBtn.style.transform = `translate(${posX}px, ${posY}px)`;
+  });
+
+  noBtn.addEventListener("click", () => {
+    alert("❌ ERROR: tombol ini menolak jawabanmu 😝");
+  });
+</script>
+
   </script>
 </body>
 </html>
