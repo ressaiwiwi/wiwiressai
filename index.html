@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiwi Ressai</title>
+
+  <style>
+    /* === STYLE DASAR === */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f8b6e0, #c3d9ff);
+      color: #333;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 40px 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+      color: #c63cad;
+    }
+
+    h2 {
+      color: #7a1fa2;
+      margin-bottom: 15px;
+    }
+
+    .about, .biodata, .gallery {
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 900px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease;
+    }
+
+    .biodata ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .biodata li {
+      background: #fff;
+      padding: 10px 15px;
+      margin: 8px 0;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .biodata li:hover {
+      background: #f1e5ff;
+    }
+
+    /* === GALERI FOTO DENGAN TEKS DI SAMPING === */
+    .photo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.8);
+      margin: 20px auto;
+      padding: 15px;
+      border-radius: 15px;
+      max-width: 900px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      gap: 20px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .photo-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .photo-item img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .photo-item p {
+      flex: 1;
+      text-align: left;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+    }
+
+    /* === VIDEO GALLERY === */
+    .video-gallery {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.8);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .video-gallery.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .video-gallery video {
+      width: 350px;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .video-desc {
+      max-width: 400px;
+      text-align: left;
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: rgba(255,255,255,0.7);
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    /* === ANIMASI === */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .photo-item img {
+        width: 100%;
+        height: auto;
+      }
+
+      .photo-item p, .video-desc {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wiwi Ressai</h1>
+    <p>“Hey there! 🌸 Aku Wiwi Ressai</p> 
+        <p>perempuan yang percaya bahwa setiap hari adalah kanvas baru untuk berkarya dan bersyukur</p> 
+       <p>and ofc this is one of my karya untuk ikut jadi bagian dari dunia digitalisasi ”✨✨</p>
+  </header>
+
+  <section class="about">
+    <h2>Tentang Saya</h2>
+    <p>
+      Halo, aku <strong>Wiwi Ressai</strong> — i am a very excited person, creative, and i really love to learn something new.
+      Aku percaya bahwa setiap hari adalah kesempatan untuk berkembang dan berbagi hal positif kepada orang lain.
+      Di sini, kamu bisa mengenal lebih dekat tentang diriku lewat biodata dan galeri pribadiku 💫
+    </p>
+  </section>
+
+  <section class="biodata">
+    <h2>Biodata</h2>
+    <ul>
+      <li><strong>Nama Lengkap:</strong> Widya Nur Alisya Ressai</li>
+      <li><strong>Tempat, Tanggal Lahir:</strong> Mamuju, 31 Mei 2004</li>
+      <li><strong>Alamat:</strong> Sulawesi Barat, Indonesia</li>
+      <li><strong>Hobi:</strong> Scroll TikTok, main gitar, ngebacot pokoknyaa🌿</li>
+      <li><strong>Cita-cita:</strong> i wanna be <strong>Digital Entrepreneur</strong> 
+        yang mampu menggabungkan teknologi dengan kreativitas,
+        pokoknya apapun yang banyak duitnya dan as long as HALAL, I'll do it haha💖
+      </li>
+    </ul>
+  </section>
+
+  <section class="gallery">
+    <h2>My Favorite Souls</h2>
+    <div class="media">
+
+      <div class="photo-item">
+        <img src="mami.jpg" alt="Foto Wiwi 1">
+        <p><strong>She is my mami</strong>, the strongest woman, my role model. 
+          Selain cantik, mamaku juga orang yang cerdas dan berprinsip. 
+          I love her so much! 💖</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="papa.jpg" alt="Foto Wiwi 2">
+        <p><strong>He is my papa</strong>, the most patient person, the best motivator ever. 
+          “Selalu gunakan hatimu, mengalah itu tidak hina, jadilah orang yang selalu dirindukan.” 
+          Papaku selalu menasihati dengan cara yang menyentuh hati batuku ini 🥺</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="ratu.jpg" alt="Foto Wiwi 3">
+        <p><strong>She is my little angel</strong> — my new hope. 
+          after bocil ini lahir, suddenly i have new reason untuk selalu ceria 
+          definisi jatuh cinta ke adik sendiri 🍼✨</p>
+          <p>sebenarnya si masih ada 2 abang tapi yah gausahlah dah besar juga mereka xixi</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="besti.jpg" alt="Foto Wiwi 4">
+        <p><strong>They are my bestfriends</strong> — 14 tahun berteman dari SD, SMP, SMA sampai sekarang. 
+          meskipun jarang ketemu karena sibuk, but ears and heart always ready for each other 💕</p>
+      </div>
+
+      <div class="video-gallery">
+        <video controls>
+          <source src="vidiowiwi.mp4" type="video/mp4">
+          Browser Anda tidak mendukung video.
+        </video>
+        <div class="video-desc">
+          <h3>gatau ini ala" ajaa si</h3>
+          <p>Dari pada gabutt, aku memilih gap year setelah lulus SMA — dan ternyata banyak hal baru yang bisa kupelajari, mulai dari belajar bahasa inggris di kampung Inggrisnya langsung, solo traveling di usia 19tahun, dll, and it was so FUN! ini salah satu caraku merayakan diri after di selingkuhi anjayyy, gila aja 7 bulan ga mau pulang!!!</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Wiwi Ressai | Dibuat dengan ❤️ dan kreativitas</p>
+  </footer>
+
+  <script>
+    // Efek animasi saat scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.photo-item, .video-gallery').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
